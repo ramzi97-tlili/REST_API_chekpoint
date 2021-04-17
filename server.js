@@ -23,7 +23,7 @@ app.post("/add", async (req, res) => {
 });
 
 
-app.get("/get_all", async (req, res) => {
+app.get("/get", async (req, res) => {
   try {
     let users = await User.find();
     res.send(users);
@@ -31,17 +31,6 @@ app.get("/get_all", async (req, res) => {
     res.send(error);
   }
 });
-
-
-app.get("/get_id/:userID", async (req, res) => {
-  try {
-    let user = await User.findById(req.params.userID);
-    res.send(user);
-  } catch (error) {
-    res.send(error);
-  }
-});
-
 
 app.delete("/delete/:userID", async (req, res) => {
   try {
